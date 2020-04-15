@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: test-service
+  profiles:
+    active: local
+
+  cloud:
+    config:
+      name: test-service
+      label: master
+      uri: http://localhost:8086
