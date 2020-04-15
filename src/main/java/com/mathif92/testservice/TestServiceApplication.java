@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.endpoint.RefreshEndpoint;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 @Slf4j
 @SpringBootApplication(scanBasePackages = "com.mathif92.testservice")
+@EnableScheduling
 public class TestServiceApplication {
 
 	public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class TestServiceApplication {
 	@Autowired
 	RefreshEndpoint refreshEndpoint;
 
-	@Scheduled(initialDelay = 30000, fixedRateString = "30000")
+	@Scheduled(initialDelay = 15000, fixedRateString = "15000")
 	public void scheduledMethod () {
 		try {
 			log.info("Refreshing configuration");
